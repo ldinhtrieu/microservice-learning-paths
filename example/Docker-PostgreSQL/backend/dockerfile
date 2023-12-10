@@ -1,0 +1,18 @@
+#Step1: install nodejs, veriosn node18/alpine
+FROM node:18-alpine
+
+#set WORKDIR is /example/backend
+WORKDIR /example/backend
+
+#Step2: copy package.json and package-lock.json to root folder
+COPY package*.json ./
+
+#Step3: run "mpn install"
+RUN npm install
+
+#Step4: Copy all file in backend foder to docker folder
+COPY . .
+
+#Step5: RUN npm run start
+
+CMD ["npm", "run", "start"]

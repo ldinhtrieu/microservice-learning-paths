@@ -1,0 +1,5 @@
+#Step1: install postgres, veriosn 16.1/alpine
+FROM postgres:16.1-alpine
+#Step2: copy init.sql to /docker-entrypoint-initdb.d/
+#Run Initialization scripts (initialization before starting the database)
+COPY init.sql /docker-entrypoint-initdb.d/

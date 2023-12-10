@@ -1,0 +1,35 @@
+# Use postgres/example user/password credentials
+version: "3.1"
+
+services:
+  database-postgres:
+    build:
+      context: ../postgresql
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_USER: me
+      POSTGRES_DB: api
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - DB_HOST=database-postgres
+      - DB_PORT=5432
+      #- DB_HOST=host.docker.internal
+    ports:
+      - 3000:3000
