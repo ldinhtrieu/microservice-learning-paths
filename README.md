@@ -4,6 +4,6 @@ microservice learning
 
 #### 1: Docker và containerization
 
-- Docker
+- Docker: example create docker with backend connect to database : docker-backend-postgreSQL-beginer
 
-#### Update At: 04-12-2023
+#### Update At: 11-12-2023
