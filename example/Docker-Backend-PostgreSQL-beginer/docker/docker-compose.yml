@@ -12,7 +12,7 @@ services:
       POSTGRES_USER: me
       POSTGRES_DB: api
     ports:
-      - 5432:5432
+      - 5434:5432
     expose:
       - 5432
 
@@ -30,6 +30,13 @@ services:
     environment:
       - DB_HOST=database-postgres
       - DB_PORT=5432
+      - PORT=3001
+      - DB_PASSWORD=12345
+      - DB_USER=me
+      - DB_NAME=api
       #- DB_HOST=host.docker.internal
     ports:
-      - 3000:3000
+      - 3000:3001
+    depends_on:
+      database-postgres:
+        condition: service_started
