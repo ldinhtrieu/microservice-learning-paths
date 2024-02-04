@@ -24,3 +24,28 @@ For example: Netflix successfully uses Node.js API Gateway with their Java backe
 ![Alt text](netflix-nodejs-api-gateway.png)
 
 <sup>Netflix’s approach to handle different clients</sup>
+
+## API Gateway functionalities
+
+### Routing and versioning
+
+In your gateway service, you can route requests form a client to specific services.
+You can even handle versioning during routing or change the backend interface while the publicly exposed interface can remain the same. You can also define new endpoints in your API gateway that cooperates with multiple services.
+
+![alt text](API-Gateway-as-microservices-entry-point.png)
+
+<sup>API Gateway as microservices entry point</sup>
+
+### Evolutionary design
+
+The API Gateway approach can also help you to break down your monolith application.
+
+_In most of the cases rewriting your system from scratch as a microservices is not a good idea and also not possible as we need to shop features for the business during the transition._
+
+In this case, we can put a proxy or an API Gateway in front of our monolith application and implement **new functionalities as microservices** and route **new endpoint to the new services** while we can serve old endpoint via monolith. Later **we can also break down the monolith** with **moving existing functionalities into new services**.
+
+With evolutionary design, we can have a **smooth transition** from monolith architecture to microservices.
+
+![alt text](Evolutionary-design-with-API-Gateway.png)
+
+<sup>Evolutionary design with API Gateway</sup>
