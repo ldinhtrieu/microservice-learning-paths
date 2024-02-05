@@ -7,7 +7,7 @@ API Gateway is a type of service in a microservice architecture which provides a
 You can think about API Gateway as the entry point to our microservices world.
 Our system can have one or multiple API Gateways, depending on the client's requirements. For example, we can have a separate gateway for desktop browsers, mobile applications and public API(s) as well.
 
-![API Gateway as an entry point to microservices](image.png)
+![API Gateway as an entry point to microservices](images/image.png)
 
 <sup> API Gateway as an entry point to microservices </sup>
 
@@ -21,7 +21,7 @@ As JavaScript is the primary language to develop applications for the browser, N
 
 For example: Netflix successfully uses Node.js API Gateway with their Java backend to support a broad range of clients.
 
-![Alt text](netflix-nodejs-api-gateway.png)
+![Alt text](images/netflix-nodejs-api-gateway.png)
 
 <sup>Netflix’s approach to handle different clients</sup>
 
@@ -32,7 +32,7 @@ For example: Netflix successfully uses Node.js API Gateway with their Java backe
 In your gateway service, you can route requests form a client to specific services.
 You can even handle versioning during routing or change the backend interface while the publicly exposed interface can remain the same. You can also define new endpoints in your API gateway that cooperates with multiple services.
 
-![alt text](API-Gateway-as-microservices-entry-point.png)
+![alt text](images/API-Gateway-as-microservices-entry-point.png)
 
 <sup>API Gateway as microservices entry point</sup>
 
@@ -46,7 +46,7 @@ In this case, we can put a proxy or an API Gateway in front of our monolith appl
 
 With evolutionary design, we can have a **smooth transition** from monolith architecture to microservices.
 
-![alt text](Evolutionary-design-with-API-Gateway.png)
+![alt text](images/Evolutionary-design-with-API-Gateway.png)
 
 <sup>Evolutionary design with API Gateway</sup>
 
@@ -59,7 +59,7 @@ In the microservices architecture, you can keep your service protected in a DMZ(
 
 For example, you can support both cookie and token based authentication.
 
-![alt text](API-Gateway-with-Authentication.png)
+![alt text](images/API-Gateway-with-Authentication.png)
 
 <sup>API Gateway with Authentication</sup>
 
@@ -71,4 +71,25 @@ We can user out API Gateway to resolve these **dependencies** and collect date f
 
 For example: In the following image you can see how the API Gateway merges and returns uer and credit information as one piece of data to the client. Note, that these are owned and managed by different microservices.
 
-![alt text](Date-aggregation.png)
+![alt text](images/Date-aggregation.png)
+
+### Serialization format transformation
+
+It can happen that we need to support clients with different data serialization format requirements.
+
+> Imagine a situation where our microservices uses JSON, but one of our customers can only consume XML APIs. In this case, we can put the JSON to XML conversion into the API Gateway instead of implementing it in all of the microservices.
+
+![alt text](images/serialization-format-transformation.png)
+
+### Protocol transformation
+
+Microservices architecture allows polyglot protocol transportation to gain the benefit of different technologies.
+However most of the client support only protocol. In this case, we need to transform service protocols for the clients.
+
+An API Gateway can also handle protocol transformation between client and microservices.
+
+For example:
+
+> In the next image, you can see how the client expects all of the communication through HTTP RESET while our internal microservices users gRPC and GraphQL.
+
+![alt text](images/Protocol-transformation.png)
