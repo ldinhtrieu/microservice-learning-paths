@@ -62,3 +62,13 @@ For example, you can support both cookie and token based authentication.
 ![alt text](API-Gateway-with-Authentication.png)
 
 <sup>API Gateway with Authentication</sup>
+
+### Date aggregation
+
+We can user out API Gateway to resolve these **dependencies** and collect date from multiple services.
+
+> In a microservices architecture, it can happen that the client needs data in a different aggregation level, like **denormalizing data** entities that take place in various microservices.
+
+For example: In the following image you can see how the API Gateway merges and returns uer and credit information as one piece of data to the client. Note, that these are owned and managed by different microservices.
+
+![alt text](Date-aggregation.png)
