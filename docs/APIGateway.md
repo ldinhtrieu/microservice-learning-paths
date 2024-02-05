@@ -49,3 +49,16 @@ With evolutionary design, we can have a **smooth transition** from monolith arch
 ![alt text](Evolutionary-design-with-API-Gateway.png)
 
 <sup>Evolutionary design with API Gateway</sup>
+
+### Authentication
+
+Most of the microservices infrastructure need to handle authentication.
+Putting **shared logic** like authentication to the API Gateway can help you to **keep your services small** and **domain focused**
+
+In the microservices architecture, you can keep your service protected in a DMZ(demilitarized zone) via network configurations and expose them to clients via the API Gateway. This gateway can also handle more than one authentication method.
+
+For example, you can support both cookie and token based authentication.
+
+![alt text](API-Gateway-with-Authentication.png)
+
+<sup>API Gateway with Authentication</sup>
