@@ -93,3 +93,22 @@ For example:
 > In the next image, you can see how the client expects all of the communication through HTTP RESET while our internal microservices users gRPC and GraphQL.
 
 ![alt text](images/Protocol-transformation.png)
+
+### Rate-limiting and caching
+
+In Authentication, you can also implement rate-limiting, caching and various reliability features in you API Gateway.
+
+### Overambitious API Gateways
+
+While implementing your API Gateway, you should avoid putting non-generic logic - like domain specific data transformation - to your gateway.
+
+Services should always have full ownership over their date domain.
+Building an overambitious API Gateway takes the control form service teams that goes against the philosophy of microservices.
+
+This is why you should be careful with date aggregations in your API Gateway - it can be powerful but can also lead to domain specific data transformation or rule processing logic that you should avoid.
+
+Always define **clear responsibilities** for your API Gateway and only include generic shared logic in it.
+
+## Node.JS API Gateway
+
+--to be continue--
