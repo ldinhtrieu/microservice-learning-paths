@@ -115,4 +115,4 @@ Always define **clear responsibilities** for your API Gateway and only include g
 
 [API-Gateway-Nodejs-example-def]: https://github.com/ldinhtrieu/microservice-learning-paths/tree/main/example/api-gateway-nodejs
 
---to be continue--
+--the end--
