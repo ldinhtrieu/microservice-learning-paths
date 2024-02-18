@@ -4,12 +4,13 @@
   "description": "api gateway sample using nodejs - express",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run start"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ldinhtrieu",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "morgan": "^1.10.0"
   }
 }
