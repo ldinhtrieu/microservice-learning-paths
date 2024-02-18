@@ -1,6 +1,6 @@
 const ROUTES = [
   {
-    url: "/free",
+    url: "/hello",
     auth: false,
     creditCheck: false,
     rateLimit: {
@@ -8,23 +8,23 @@ const ROUTES = [
       max: 5,
     },
     proxy: {
-      target: "https://www.google.com",
+      target: "https://dictionary.cambridge.org/vi/dictionary/english",
       changeOrigin: true,
       pathRewrite: {
-        [`^/free
+        [`^/hello
     `]: "",
       },
     },
   },
   {
-    url: "/premium",
+    url: "/ldinhtrieu",
     auth: true,
     creditCheck: true,
     proxy: {
-      target: "https://www.google.com",
+      target: "https://github.com/",
       changeOrigin: true,
       pathRewrite: {
-        [`^/premium
+        [`^/ldinhtrieu
     `]: "",
       },
     },
