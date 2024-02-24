@@ -15,4 +15,4 @@ COPY . .
 
 #Step5: RUN node ./recive.js
 
-CMD ["node", "./recive.js"]
+CMD ["node", "./worker.js"]
