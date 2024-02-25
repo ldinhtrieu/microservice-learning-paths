@@ -9,7 +9,7 @@ services:
       - "15672:15672"
     container_name: rabbitmq
 
-  backend:
+  recive-service:
     build:
       context: .
       dockerfile: Dockerfile

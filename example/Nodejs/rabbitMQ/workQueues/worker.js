@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 var amqp = require("amqplib/callback_api");
-
-amqp.connect("amqp://localhost", function (error0, connection) {
+const host = process.env.RABBIT_HOST;
+amqp.connect(`amqp://${host}`, function (error0, connection) {
   if (error0) {
     throw error0;
   }

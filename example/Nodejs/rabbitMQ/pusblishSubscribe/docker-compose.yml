@@ -9,7 +9,7 @@ services:
       - "15672:15672"
     container_name: rabbitmq
 
-  backend:
+  pusblish-subscribe:
     build:
       context: .
       dockerfile: Dockerfile
@@ -19,6 +19,6 @@ services:
     environment:
       - RABBIT_HOST=rabbitmq
     ports:
-      - 3002:3001
+      - 3004:3001
     depends_on:
       - rabbitmq
