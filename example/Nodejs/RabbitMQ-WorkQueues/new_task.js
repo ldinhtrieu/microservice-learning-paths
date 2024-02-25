@@ -21,6 +21,7 @@ amqp.connect(`amqp://${host}`, function (error0, connection) {
     channel.assertQueue(queue, {
       durable: true,
     });
+    //we need to mark our messages as persistent
     channel.sendToQueue(queue, Buffer.from(msg), {
       persistent: true,
     });
