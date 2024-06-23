@@ -15,13 +15,13 @@ amqp.connect(`amqp://${host}`, function (error0, connection) {
       throw error1;
     }
 
-    var queue = "hello";
+    var queueName = "hello";
     var msg = "Hello World!";
 
     channel.assertQueue(queue, {
       durable: false,
     });
-    channel.sendToQueue(queue, Buffer.from(msg));
+    channel.sendToQueue(queueName, Buffer.from(msg));
 
     console.log(" [x] Sent %s", msg);
   });

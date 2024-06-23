@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 
 var amqp = require("amqplib/callback_api");
-
+const ExchangeType = {
+  FANOUT: "fanout",
+  DIRECT: "direct",
+  TOPIC: "topic",
+  HEADERS: "headers",
+};
 require("dotenv").config();
 const host = process.env.RABBIT_HOST;
 //then connect to RabbitMQ server
@@ -13,9 +18,9 @@ amqp.connect(`amqp://${host}`, function (error0, connection) {
     if (error1) {
       throw error1;
     }
-    var exchange = "logs";
+    var exchangeName = "logs";
 
-    channel.assertExchange(exchange, "fanout", {
+    channel.assertExchange(exchangeName, ExchangeType.FANOUT, {
       durable: false,
     });
 
@@ -32,7 +37,7 @@ amqp.connect(`amqp://${host}`, function (error0, connection) {
           " [*] Waiting for messages in %s. To exit press CTRL+C",
           q.queue
         );
-        channel.bindQueue(q.queue, exchange, "");
+        channel.bindQueue(q.queue, exchangeName, "");
 
         channel.consume(
           q.queue,
